@@ -5,11 +5,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ProveedorSchema = Schema({
-    idPersona: {
+    personaId: {
         type: Schema.Types.ObjectId,
         ref: 'Persona'
     },
-    idSede: {
+    sedeId: {
         type: Schema.Types.ObjectId,
         ref: 'Sede'
     }

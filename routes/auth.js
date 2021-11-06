@@ -1,7 +1,7 @@
 'use strict'
 
 var express = require('express');
-var authcontroller = require('../controllers/authcontroller');
+var authcontroller = require('../controllers/auth');
 var token = require('../helpers/token');
 
 var application = express.Router();
@@ -14,5 +14,7 @@ application.get('/controlador', token.validarTokenDeUsuario , authcontroller.pru
 application.post('/usuario/create', authcontroller.registrarUsuario);
 
 application.post('/usuario/login', authcontroller.validarPasswordDeUsuario);
+
+application.get('/usuario/all', authcontroller.findAllUsuarios);
 
 module.exports = application;

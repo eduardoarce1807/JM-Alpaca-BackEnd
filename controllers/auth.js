@@ -57,8 +57,23 @@ function validarPasswordDeUsuario(req, resp){
 
 }
 
+function findAllUsuarios(req, resp){
+
+    Usuario.find({}, function(err,obj) {
+        if(err){
+            resp.status(500).send({message: "No se pudo consultar los usuarios"});
+        }
+        else{
+            resp.status(200).send({usuarios: obj});
+        }
+    });
+
+
+}
+
 module.exports = {
     pruebaController,
     registrarUsuario,
-    validarPasswordDeUsuario
+    validarPasswordDeUsuario,
+    findAllUsuarios
 };

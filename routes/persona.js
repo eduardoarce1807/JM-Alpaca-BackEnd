@@ -1,7 +1,7 @@
 'use strict'
 
 var express = require('express');
-var personacontroller = require('../controllers/personacontroller');
+var personacontroller = require('../controllers/persona');
 var token = require('../helpers/token');
 
 var application = express.Router();

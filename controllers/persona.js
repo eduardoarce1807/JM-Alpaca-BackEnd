@@ -2,10 +2,6 @@
 
 var Persona = require('../models/persona');
 
-var Usuario = require('../models/usuario');
-var token = require('../helpers/token');
-var bcrypt = require('bcrypt-nodejs');
-
 function createPersona(req, resp){
 
     var newPersona = new Persona();
