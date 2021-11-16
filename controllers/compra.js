@@ -84,6 +84,19 @@ function findByIdCompra(req, resp){
 
 }
 
+function findByProveedorIdCompra(req, resp){
+
+    Compra.find({ proveedorId: req.params.proveedorId}, (err, comprasEcontradas) => {
+        if(err){
+            resp.status(500).send({message: "No se pudo consultar a las compras del proveedor con id: "+proveedorId});
+        }
+        else{
+            resp.status(200).send({comprasProveedorId: comprasEcontradas});
+        }
+    });
+
+}
+
 function findAllCompra(req, resp){
 
     Compra.find({}, (err, comprasEcontradas) => {
@@ -102,5 +115,6 @@ module.exports = {
     updateCompra,
     deleteCompra,
     findByIdCompra,
+    findByProveedorIdCompra,
     findAllCompra
 };

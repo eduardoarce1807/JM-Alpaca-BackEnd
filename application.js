@@ -9,6 +9,7 @@ var routesSede = require('./routes/sede');
 var routesProveedor = require('./routes/proveedor');
 var routesTipoDescuento = require('./routes/tipo_descuento');
 var routesProducto = require('./routes/producto');
+var routesCompra = require('./routes/compra');
 
 var application = express();
 
@@ -21,6 +22,7 @@ application.use('/api', routesSede);
 application.use('/api', routesProveedor);
 application.use('/api', routesTipoDescuento);
 application.use('/api', routesProducto);
+application.use('/api', routesCompra);
 
 application.get('/health-check', function(req, resp){
     resp.status(200).send({mensaje:"OK"});
