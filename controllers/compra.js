@@ -16,7 +16,9 @@ function createCompra(req, resp){
     newCompra.cantidad = parametros.cantidad;
     newCompra.pesoKilos = parametros.pesoKilos;
     newCompra.pesoLibras = parametros.pesoLibras;
+    newCompra.pesoNeto = parametros.pesoNeto;
     newCompra.descuento = parametros.descuento;
+    newCompra.saved = parametros.saved;
 
     newCompra.save(
         (err, compraCreada) => {
@@ -42,7 +44,9 @@ function updateCompra(req, resp){
         cantidad: parametros.cantidad,
         pesoKilos: parametros.pesoKilos,
         pesoLibras: parametros.pesoLibras,
-        descuento: parametros.descuento
+        pesoNeto: parametros.pesoNeto,
+        descuento: parametros.descuento,
+        saved: parametros.saved
     }, function(err, compraActualizada){
         if(err){
             resp.status(500).send({message: "No se pudo modificar la compra."});
@@ -86,7 +90,7 @@ function findByIdCompra(req, resp){
 
 function findByProveedorIdCompra(req, resp){
 
-    Compra.find({ proveedorId: req.params.proveedorId}, (err, comprasEcontradas) => {
+    Compra.find({ proveedorId: req.params.proveedorId, saved: false }, (err, comprasEcontradas) => {
         if(err){
             resp.status(500).send({message: "No se pudo consultar a las compras del proveedor con id: "+proveedorId});
         }

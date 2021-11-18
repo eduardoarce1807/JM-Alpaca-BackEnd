@@ -22,7 +22,9 @@ var CompraSchema = Schema({
     cantidad: Number,
     pesoKilos: Number,
     pesoLibras: Number,
-    descuento: Number
+    pesoNeto: Number,
+    descuento: Number,
+    saved: Boolean
 });
 
 module.exports = mongoose.model('Compra', CompraSchema);
