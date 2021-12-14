@@ -18,4 +18,6 @@ application.get('/compra/:id', compracontroller.findByIdCompra);
 
 application.get('/compraProveedorId/:proveedorId', compracontroller.findByProveedorIdCompra);
 
+application.get('/compraProveedorIdTrue/:proveedorId', compracontroller.findByProveedorIdCompraTrue);
+
 module.exports = application;
